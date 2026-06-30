@@ -61,7 +61,7 @@ begin
         end if;
     end process;
 
-    -- [水平同步訊號] 轉換為循序邏輯，只負責控制 o_hsync
+    -- [水平同步訊號]只負責控制 o_hsync
     process(clk_25M, i_rst)
     begin
         if i_rst = '1' then
@@ -75,11 +75,11 @@ begin
         end if;
     end process;
 
-    -- [垂直同步訊號] 轉換為循序邏輯，只負責控制 o_vsync
+    -- [垂直同步訊號]只負責控制 o_vsync
     process(clk_25M, i_rst)
     begin
         if i_rst = '1' then
-            o_vsync <= '1';  -- 同步訊號預設為高電位
+            o_vsync <= '1'; 同步訊號預設為高電位
         elsif rising_edge(clk_25M) then
             if (v_cnt >= 490 and v_cnt < 492) then
                 o_vsync <= '0';
@@ -89,7 +89,7 @@ begin
         end if;
     end process;
 
-    -- [畫面繪製 - 紅色通道] 轉換為循序邏輯，只負責控制 o_red
+    -- [畫面繪製 - 紅色通道]只負責控制 o_red
     process(clk_25M, i_rst)
     begin
         if i_rst = '1' then
@@ -109,7 +109,7 @@ begin
         end if;
     end process;
 
-    -- [畫面繪製 - 綠色通道] 轉換為循序邏輯，只負責控制 o_green
+    -- [畫面繪製 - 綠色通道]只負責控制 o_green
     process(clk_25M, i_rst)
     begin
         if i_rst = '1' then
@@ -120,7 +120,7 @@ begin
         end if;
     end process;
 
-    -- [畫面繪製 - 藍色通道] 轉換為循序邏輯，只負責控制 o_blue
+    -- [畫面繪製 - 藍色通道]只負責控制 o_blue
     process(clk_25M, i_rst)
     begin
         if i_rst = '1' then
